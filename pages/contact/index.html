@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - NiagaChat</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="/"><span class="logo-icon">💬</span> NiagaChat</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/pages/services/index.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="/pages/portfolio/index.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="/pages/about/index.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/pages/contact/index.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <button id="login-btn" class="login-btn">Login</button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <!-- Hero -->
+        <section class="page-hero">
+            <h1>Hubungi Kami</h1>
+            <p>Ada pertanyaan? Tim kami siap membantu Anda</p>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-section">
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:hello@niagachat.com">hello@niagachat.com</a></p>
+                        <small>Respon dalam 24 jam</small>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📱</div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/6281234567890">+62 812-3456-7890</a></p>
+                        <small>Chat dengan sales kami</small>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Telepon</h3>
+                        <p><a href="tel:+622122334455">+62 (21) 2233-4455</a></p>
+                        <small>Jam kerja: Senin-Jumat 09:00-18:00</small>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Alamat</h3>
+                        <p>Jakarta, Indonesia</p>
+                        <small>Zona Niaga Sudirman Plaza</small>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Kirim Pesan</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Pilih subjek...</option>
+                                <option value="sales">Pertanyaan Sales</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media -->
+        <section class="social-media">
+            <h2>Ikuti Kami</h2>
+            <div class="social-links">
+                <a href="#" class="social-link">📘 Facebook</a>
+                <a href="#" class="social-link">🐦 Twitter</a>
+                <a href="#" class="social-link">📷 Instagram</a>
+                <a href="#" class="social-link">💼 LinkedIn</a>
+                <a href="#" class="social-link">▶️ YouTube</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NiagaChat</h4>
+                <p>Platform chatbot terpercaya untuk bisnis digital Indonesia</p>
+            </div>
+            <div class="footer-section">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="#">Chatbot Builder</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Integration</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="/pages/about/index.html">Tentang Kami</a></li>
+                    <li><a href="/pages/contact/index.html">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NiagaChat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>
