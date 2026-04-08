@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bcrypt = require('bcrypt');      
 const crypto = require('crypto');     
 const nodemailer = require('nodemailer'); 
@@ -9,6 +10,8 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
+app.use('/assets', express.static(path.join(__dirname, '../assets')));
 
 
 const transporter = nodemailer.createTransport({

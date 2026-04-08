@@ -262,6 +262,125 @@ const initCoreUI = () => {
     document.querySelectorAll('.anim-scroll').forEach(el => observer.observe(el));
 };
 
+const initLiveMetrics = () => {
+    const msgEl = document.getElementById('liveMessages');
+    const userEl = document.getElementById('liveUsers');
+    const marquee = document.getElementById('marquee-content');
+
+    if(msgEl) {
+        setInterval(() => {
+            const currentMsg = parseInt(msgEl.innerText.replace(/\D/g, '')) || 0;
+            const newTotal = currentMsg + (Math.floor(Math.random() * 15) + 1);
+            const parts = newTotal.toLocaleString('id-ID').split('.');
+            msgEl.innerHTML = parts.length > 1 ? `${parts[0]}.<span>${parts[1]}</span>` : `<span>${newTotal.toLocaleString('id-ID')}</span>`;
+        }, 1500);
+    }
+
+    if(userEl) {
+        setInterval(() => {
+            const currentUser = parseInt(userEl.innerText.replace(/\D/g, '')) || 0;
+            const parts = (currentUser + 1).toLocaleString('id-ID').split('.');
+            userEl.innerHTML = parts.length > 1 ? `${parts[0]}.<span>${parts[1]}</span>` : `<span>${(currentUser + 1).toLocaleString('id-ID')}</span>`;
+        }, 18000);
+    }
+
+    if(marquee) {
+        marquee.innerHTML += marquee.innerHTML;
+    }
+};
+
+const initROI = () => {
+    const slider = document.getElementById('chatVolume');
+    const chatVal = document.getElementById('chatVal');
+    const roiVal = document.getElementById('roiVal');
+
+    if(!slider || !chatVal || !roiVal) return;
+
+    slider.addEventListener('input', (e) => {
+        const msgs = e.target.value;
+        chatVal.innerText = msgs;
+        roiVal.innerText = (msgs * 1000 * 30).toLocaleString('id-ID');
+    });
+};
+
+const initFAQ = () => {
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            const answer = item.nextElementSibling;
+            const icon = item.querySelector('.toggle-icon');
+
+            document.querySelectorAll('.faq-item').forEach(child => {
+                if(child !== parent) {
+                    child.classList.remove('active');
+                    const childAnswer = child.querySelector('.faq-answer');
+                    if(childAnswer) {
+                        childAnswer.style.maxHeight = null;
+                    }
+                    const childIcon = child.querySelector('.toggle-icon');
+                    if(childIcon) childIcon.innerText = '+';
+                }
+            });
+
+            parent.classList.toggle('active');
+            if(parent.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.innerText = '-';
+            } else {
+                answer.style.maxHeight = null;
+                icon.innerText = '+';
+            }
+        });
+    });
+};
+
+const initChatbot = () => {
+    const trigger = document.getElementById('chat-trigger');
+    const widget = document.getElementById('chat-widget');
+    const close = document.getElementById('close-chat');
+    const form = document.getElementById('demo-chat-form');
+    const input = document.getElementById('chat-input-text');
+    const body = document.getElementById('chat-body');
+
+    if(trigger && widget) {
+        trigger.onclick = () => {
+            widget.classList.add('open');
+            trigger.style.transform = 'scale(0)';
+        };
+    }
+
+    if(close && widget) {
+        close.onclick = () => {
+            widget.classList.remove('open');
+            if(trigger) trigger.style.transform = 'scale(1)';
+        };
+    }
+
+    if(form && input && body) {
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            if(!input.value.trim()) return;
+            body.innerHTML += `<div class="msg user">${input.value}</div>`;
+            input.value = '';
+            body.scrollTop = body.scrollHeight;
+
+            setTimeout(() => {
+                const replies = ["Menarik!", "NiagaChat bisa melakukan itu.", "Sistem kami terintegrasi 24/7.", "Hubungi tim via form Transmisi Data ya!"];
+                body.innerHTML += `<div class="msg bot">${replies[Math.floor(Math.random() * replies.length)]}</div>`;
+                body.scrollTop = body.scrollHeight;
+            }, 1000);
+        };
+    }
+};
+
+const initLoginRedirect = () => {
+    document.querySelectorAll('#login-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            window.location.href = '/pages/login/index.html';
+        });
+    });
+};
+
 // ==========================================
 // 5. MASTER INITIALIZATION
 // ==========================================
@@ -276,6 +395,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initLoginModal();
     initCheckout();
     initCoreUI();
+    initLiveMetrics();
+    initROI();
+    initFAQ();
+    initChatbot();
+    initLoginRedirect();
 
     // Pesan Terminal
     console.clear();

@@ -213,4 +213,395 @@ header {
     z-index: 1;
 }
 
-css
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: var(--text-light);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--neon-green);
+    border-radius: 999px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+    border-color: var(--neon-green);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--neon-green);
+}
+
+.logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--text-light);
+}
+
+.logo span {
+    color: var(--neon-green);
+}
+
+.btn-cyber {
+    display: inline-block;
+    padding: 14px 30px;
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--neon-green);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.btn-cyber::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--neon-green);
+    z-index: -1;
+    transform: translateY(100%);
+    transition: 0.3s;
+}
+
+.btn-cyber:hover {
+    color: var(--bg-dark);
+    border-color: var(--neon-green);
+}
+
+.btn-cyber:hover::before {
+    transform: translateY(0);
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--neon-green);
+    z-index: 9999;
+    width: 0%;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+#particles-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: var(--neon-green);
+}
+
+.page-content {
+    padding-top: 140px;
+}
+
+.page-hero {
+    padding: 140px 20px 60px;
+    text-align: center;
+}
+
+.page-hero h1,
+.page-hero p {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-section,
+.services-grid,
+.portfolio-grid,
+.contact-section,
+.how-it-works,
+.use-cases,
+.testimonials,
+.portfolio-stats {
+    padding-bottom: 60px;
+}
+
+.about-grid,
+.services-grid,
+.portfolio-grid,
+.contact-wrapper,
+.testimonial-grid,
+.stats-large,
+.how-it-works .steps,
+.use-case-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.about-grid,
+.services-grid,
+.portfolio-grid,
+.stats-large,
+.use-case-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.about-card,
+.service-card,
+.portfolio-card,
+.testimonial-card,
+.stat-card,
+.info-card,
+.login-card,
+.highlight-card {
+    background: var(--card-dark);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 18px;
+}
+
+.about-card h3,
+.service-card h3,
+.portfolio-card h3,
+.testimonial-card h4,
+.info-card h3,
+.login-card h1,
+.highlight-card h2 {
+    margin-bottom: 18px;
+}
+
+.about-card p,
+.service-card p,
+.portfolio-card p,
+.testimonial-card p,
+.info-card p,
+.highlight-card p {
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.highlight-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.highlight-card {
+    text-align: center;
+}
+
+.login-section {
+    padding: 120px 20px 80px;
+}
+
+.login-card {
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.login-card h1 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    margin-bottom: 30px;
+    color: var(--text-muted);
+}
+
+.login-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.login-form input,
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 14px 16px;
+    border-radius: 10px;
+    color: var(--text-light);
+}
+
+.btn-login,
+.btn-submit,
+.btn-register {
+    width: 100%;
+    background: var(--neon-green);
+    color: var(--bg-dark);
+    border: none;
+    padding: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.login-footer,
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-muted);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: var(--text-muted);
+}
+
+.footer-bottom {
+    padding: 25px 20px 40px;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .page-hero {
+        padding-top: 180px;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        padding: 16px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .container,
+    .about-grid,
+    .services-grid,
+    .portfolio-grid,
+    .stats-large,
+    .use-case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-cyber {
+        font-size: 0.95rem;
+        padding: 12px 18px;
+    }
+
+    .highlight-actions {
+        flex-direction: column;
+    }
+}
